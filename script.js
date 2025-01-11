@@ -4,7 +4,7 @@ let selectedDifficulty = 'normal';
 const DIFFICULTY_SETTINGS = {
     'easy': { foodTarget: 15, speed: 200 },
     'normal': { foodTarget: 25, speed: 150 },
-    'hard': { foodTarget: 50, speed: 100 }
+    'hard': { foodTarget: 10, speed: 100 }
 };
 
 let bgMusic;
