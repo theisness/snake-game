@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Snake Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <audio id="bgMusic" loop>
+        <source src="game.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <button class="music-control" id="musicToggle" onclick="toggleMusic()">🎵</button>
+    
+    <div class="game-container">
+        <!-- from internet url image-->
+        <img src="cover.png" 
+             alt="Snake Game Cover" 
+             class="game-cover"
+             id="gameCover"
+             style="max-width: 100%; height: auto;">
+        <div class="difficulty-select" id="difficultySelect">
+            <button class="difficulty-btn easy" onclick="selectDifficulty('easy')">Easy</button>
+            <button class="difficulty-btn normal selected" onclick="selectDifficulty('normal')">Normal</button>
+            <button class="difficulty-btn hard" onclick="selectDifficulty('hard')">Hard</button>
+        </div>
+        <button id="startBtn" onclick="startGame()">Start Game</button>
+        <div class="game-area">
+            <div id="failOverlay" class="fail-overlay">
+                <img src="fail.png" alt="Game Over" class="fail-image">
+                
+            </div>
+            <canvas id="gameCanvas" width="320" height="320"></canvas>
+        </div>
+        <div class="controls">
+            <button class="control-btn btn-up" onclick="handleMobileControl('up')">up</button>
+            <button class="control-btn btn-left" onclick="handleMobileControl('left')">left</button>
+            <button class="control-btn btn-down" onclick="handleMobileControl('down')">down</button>
+            <button class="control-btn btn-right" onclick="handleMobileControl('right')">right</button>
+        </div>
+    </div>
+    <div class="author">Author: Pan</div>
+    
+
+</body>
+</html>

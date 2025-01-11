@@ -1,0 +1,198 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #1a1a1a;
+    font-family: Arial, sans-serif;
+}
+canvas { 
+    /* border: 2px solid #333; */
+    border-radius: 8px;
+    display: none;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    max-width: 95vw;
+    height: auto;
+}
+#startBtn {
+    padding: 15px 40px;
+    font-size: 24px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+#startBtn:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.controls {
+    display: grid;
+    grid-template-areas:
+        '. up .'
+        'left down right';
+    grid-template-columns: repeat(3, 60px);
+    gap: 10px;
+    margin-top: 20px;
+}
+.control-btn {
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    touch-action: manipulation;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.control-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.btn-up { grid-area: up; }
+.btn-down { grid-area: down; }
+.btn-left { grid-area: left; }
+.btn-right { grid-area: right; }
+@media (min-width: 768px) {
+    .controls {
+        display: none;
+    }
+}
+.author {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: #4CAF50;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+.game-cover {
+    width: 280px;
+    height: 280px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    object-fit: cover;
+}
+
+@media (max-width: 320px) {
+    .game-cover {
+        width: 95vw;
+        height: auto;
+    }
+}
+.difficulty-select {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+    justify-content: center;
+}
+.difficulty-btn {
+    padding: 10px 25px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    transition: all 0.3s ease;
+}
+.easy { background-color: #4CAF50; }
+.normal { background-color: #FFA500; }
+.hard { background-color: #FF4444; }
+.difficulty-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.difficulty-btn.selected {
+    box-shadow: 0 0 0 3px #fff, 0 0 0 6px currentColor;
+}
+.music-control {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(76, 175, 80, 0.8);
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    border: none;
+    transition: all 0.3s ease;
+}
+.music-control:hover {
+    transform: scale(1.1);
+    background: rgba(76, 175, 80, 1);
+}
+.fail-overlay {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin-top: -400px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.fail-image {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.fail-message {
+    color: #FF5252;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    line-height: 1.5;
+}
+
+#gameCanvas {
+    position: relative;
+    z-index: 1;
+}
+
+.game-area {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
